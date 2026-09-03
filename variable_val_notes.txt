@@ -1,0 +1,45 @@
+VARIABLE VALUES TO CHECK BEFORE RUNNING NEW SETUP
+
+### python_agent.py ###
+
+LINE 200
+num_seed = -1
+# aamas setup: -1 # Use random seed
+
+LINE 280
+ab_rating["craft"] = 100
+# aamas setup: 100
+# different crafting difficulty based on location:
+# {'workbench': 100, 'factory': 100, 'toolshed': 500}
+
+LINE 321
+# COMMENT OUT "and not ar_obs" TO USE UVFA MODEL FOR AGENT
+
+LINE 443
+max_training_frames = 20 * max_steps
+
+### environment.py ###
+
+LINE 110
+elo()
+# self.ab_rating['player'], self.ab_rating['craft'])  # same crafting difficulty
+# self.ab_rating['player'], self.ab_rating['craft'][v[0]])  # different crafting difficulty based on location
+# self.ab_rating['player'], assumed_reward_func[self.player_turn][k] * self.ab_rating['craft'])  # different crafting difficulty
+
+LINE 268
+COMMENT OUT "and not self.test_mode" to use UVFA for an executing agent
+
+### attribute_recogniser.py ### 
+
+LINE 76
+self.uvfa_weight
+# ability:
+# [x for x in range(100, 1200, int(((1200-100)/20)))]
+# [x for x in range(100, 1200, 200)]
+# [300, 500, 700]
+# [100, 500]
+
+### scenario.py ###
+
+scenarios["train"]["attr_sets"]
+scenarios["eval"]["attr_sets"]
