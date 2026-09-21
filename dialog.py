@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Dialog class is used to draw plots during training
-# TODO maybe merge graphing utilities into this class: graph_item.py, graph.py
 
 
 class Dialog(object):
